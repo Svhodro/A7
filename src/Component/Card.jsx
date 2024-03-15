@@ -1,33 +1,33 @@
 import React from "react";
-function Card() {
+function Card(data) {
+  
     return (
         <>
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+                    <img src={data.data.recipe_img} alt="Shoes" className="rounded-xl w-60 h-40" />
                 </figure>
                 <div className="card-body  text-left ">
-                    <p className="font-bold">Spaghetti Bolognese</p>
-                    <p>Classic Italian pasta dish with savory meat
-                        sauce.</p>
+                    <p className="font-bold">{data.data.recipe_name}</p>
+                    <p>{data.short_description}</p>
                         <hr className="w-[95%]"/>
-                        <p className="font-bold ">Ingredients: 6</p>
+                        <p className="font-bold ">Ingredients:</p>
                         <ol className="list-disc list-inside text-left">
-                            <li>500g ground beef</li>
-                            <li>1 onion, choppef</li>
-                            <li>2 cloves garlic, minced</li>
+                            <li>{data.data.ingredients[0]}</li>
+                            <li>{data.data.ingredients[1]}</li>
+                            <li>{data.data.ingredients[2]}</li>
                         </ol>
                         <hr className="w-[95%] "/>
                         <div className="flex gap-4 justify-between">
                             <div>
-                                <p>30 minutes</p>
+                                <p>{data.data.preparing_time}</p>
                             </div>
                             <div>
-                                <p>600 calories</p>
+                                <p>{data.data.calories}</p>
                             </div>
                         </div>
                     <div className="card-actions">
-                    <button class="btn btn-accent">Want to Cook</button>
+                    <button className="btn btn-accent">Want to Cook</button>
                     </div>
                 </div>
             </div>        
